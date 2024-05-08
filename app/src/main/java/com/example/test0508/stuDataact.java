@@ -39,12 +39,14 @@ public class stuDataact extends RecyclerView.Adapter<stuDataact.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         stuData stuData = listData.get(position);
-        holder.tvname.setText(stuData.getName());
-        holder.tvheight.setText(stuData.getHeight());
+        tvname.setText(stuData.getName());
+        tvheight.setText(stuData.getHeight());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+//        return 0;
+//        return stuData.size();
+        return listData.size();
     }
 }
