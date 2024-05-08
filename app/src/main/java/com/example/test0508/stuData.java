@@ -1,3 +1,5 @@
+package com.example.test0508;
+
 public class stuData {
     private String id;
     private String name;
@@ -33,4 +35,5 @@ public class stuData {
     public void setHeight(String height) {
         this.height = height;
     }
+
 }
