@@ -45,8 +45,6 @@ public class stuDataact extends RecyclerView.Adapter<stuDataact.ViewHolder> {
 
     @Override
     public int getItemCount() {
-//        return 0;
-//        return stuData.size();
         return listData.size();
     }
 }
