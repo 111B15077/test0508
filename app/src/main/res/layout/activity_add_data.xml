@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_add_data">
+
+    <EditText
+        android:id="@+id/addName"
+        android:layout_width="302dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="請輸入姓名"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/addhieght"
+        android:layout_width="311dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:hint="請輸入身高"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="105dp" />
+
+    <EditText
+        android:id="@+id/addURL"
+        android:layout_width="309dp"
+        android:layout_height="47dp"
+        android:ems="10"
+        android:hint="請輸入網址"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="187dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="60dp"
+        android:onClick="gobalck"
+        android:text="Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addURL" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

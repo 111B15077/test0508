@@ -24,6 +24,10 @@ public class stuDataact extends RecyclerView.Adapter<stuDataact.ViewHolder> {
         this.listData = listData;
     }
 
+    public static void add(stuData stuData) {
+
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
