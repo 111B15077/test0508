@@ -17,18 +17,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         RecyclerView recyclerView = findViewById(R.id.rvMyData);
-
+//        String url = "https://img.599ku.com/element_min_new_pic/66/83/4/98/c1b8d90c007462f0737825d110aebceb.png";
         List<stuData> listData = new ArrayList<>();
-        listData.add(new stuData("1", "John", "180"));
-        listData.add(new stuData("2", "Tom", "175"));
-        listData.add(new stuData("3", "Jerry", "170"));
-        listData.add(new stuData("4", "Mike", "165"));
-        listData.add(new stuData("5", "Jack", "160"));
-        listData.add(new stuData("6", "Rose", "155"));
-        listData.add(new stuData("7", "Lily", "150"));
-        listData.add(new stuData("8", "Lucy", "145"));
-        listData.add(new stuData("9", "Linda", "140"));
-        listData.add(new stuData("10", "Marry", "135"));
+        listData.add(new stuData("https://img.599ku.com/element_min_new_pic/66/83/4/98/c1b8d90c007462f0737825d110aebceb.png", "Alice", "180"));
+
+        listData.add(new stuData("https://img.599ku.com/element_min_new_pic/66/83/4/98/c1b8d90c007462f0737825d110aebceb.png", "David", "150"));
+        listData.add(new stuData("https://img.599ku.com/element_min_new_pic/66/83/4/98/c1b8d90c007462f0737825d110aebceb.png", "Eva", "140"));
+        listData.add(new stuData("https://img.599ku.com/element_min_new_pic/66/83/4/98/c1b8d90c007462f0737825d110aebceb.png", "Frank", "130"));
+        listData.add(new stuData("https://img.599ku.com/element_min_new_pic/66/83/4/98/c1b8d90c007462f0737825d110aebceb.png", "Grace", "120"));
+        listData.add(new stuData("https://img.599ku.com/element_min_new_pic/66/83/4/98/c1b8d90c007462f0737825d110aebceb.png", "Helen", "110"));
+        listData.add(new stuData("https://img.599ku.com/element_min_new_pic/66/83/4/98/c1b8d90c007462f0737825d110aebceb.png", "Ivy", "100"));
+        listData.add(new stuData("https://img.599ku.com/element_min_new_pic/66/83/4/98/c1b8d90c007462f0737825d110aebceb.png", "Jack", "90"));
+
+
 
         recyclerView.setAdapter(new stuDataact(listData));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

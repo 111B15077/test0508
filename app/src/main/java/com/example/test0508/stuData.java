@@ -1,22 +1,36 @@
 package com.example.test0508;
 
 public class stuData {
-    private String id;
+    private int id;
     private String name;
     private String height;
+    private String imageURL;
 
+    public stuData(String imageURL, String name, String height) {
+        this.name = name;
+        this.height = height;
+        this.imageURL = imageURL;
+    }
 
-    public stuData(String id, String name, String height) {
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public stuData(int id, String name, String height) {
         this.id = id;
         this.name = name;
         this.height = height;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
