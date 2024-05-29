@@ -5,12 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.List;
-
-public class Activity_add_data extends AppCompatActivity {
+public class AddDataActivity extends AppCompatActivity {
 
     private TextView addName;
     private TextView addHeight;
@@ -22,9 +19,9 @@ public class Activity_add_data extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_data);
 
-        addName = findViewById(R.id.addName);
-        addHeight = findViewById(R.id.addhieght);
-        addUrl = findViewById(R.id.addURL);
+        addName = findViewById(R.id.edAddName);
+        addHeight = findViewById(R.id.edAddHeight);
+        addUrl = findViewById(R.id.edAddImgURL);
 
         intent = getIntent();
         String name = intent.getStringExtra("name");

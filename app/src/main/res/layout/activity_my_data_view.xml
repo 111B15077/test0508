@@ -7,7 +7,7 @@
     tools:context=".MyDataView">
 
     <ImageView
-        android:id="@+id/tvpic"
+        android:id="@+id/tvPic"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
@@ -20,22 +20,20 @@
 
     <TextView
         android:id="@+id/tvname"
-        android:layout_width="89dp"
-        android:layout_height="27dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toEndOf="@+id/tvpic"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/tvPic"
+        app:layout_constraintTop_toTopOf="@+id/tvPic" />
 
     <TextView
-        android:id="@+id/tvheight"
-        android:layout_width="89dp"
-        android:layout_height="27dp"
-        android:layout_marginTop="16dp"
+        android:id="@+id/tvHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintStart_toStartOf="@+id/tvname"
-        app:layout_constraintTop_toBottomOf="@+id/tvname" />
+        app:layout_constraintBottom_toBottomOf="@+id/tvPic"
+        app:layout_constraintStart_toStartOf="@+id/tvname" />
 </androidx.constraintlayout.widget.ConstraintLayout>

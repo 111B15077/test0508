@@ -1,19 +1,19 @@
 package com.example.test0508;
 
-public class stuData {
+public class StuData {
 
     private int id;
     private String name;
     private String height;
     private String imageUrl;
 
-    public stuData(int id, String name, String height) {
+    public StuData(int id, String name, String height) {
         this.id = id;
         this.name = name;
         this.height = height;
     }
 
-    public stuData(String imageUrl, String name, String height) {
+    public StuData(String imageUrl, String name, String height) {
         this.name = name;
         this.height = height;
         this.imageUrl = imageUrl;

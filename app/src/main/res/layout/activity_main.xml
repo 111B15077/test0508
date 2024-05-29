@@ -8,9 +8,12 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMyData"
-        android:layout_width="409dp"
-        android:layout_height="632dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="414dp"
+        android:layout_height="417dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -18,9 +21,10 @@
         android:id="@+id/btAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="16dp"
+        android:onClick="addData"
         android:text="Add"
+        app:layout_constraintBottom_toTopOf="@+id/rvMyData"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

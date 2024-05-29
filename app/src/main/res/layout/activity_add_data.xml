@@ -4,49 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity_add_data">
+    tools:context=".AddDataActivity">
 
     <EditText
-        android:id="@+id/addName"
-        android:layout_width="302dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="40dp"
+        android:id="@+id/edAddName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:ems="10"
         android:hint="請輸入姓名"
         android:inputType="text"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/addhieght"
-        android:layout_width="311dp"
-        android:layout_height="45dp"
+        android:id="@+id/edAddHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:ems="10"
         android:hint="請輸入身高"
         android:inputType="text"
-        tools:layout_editor_absoluteX="49dp"
-        tools:layout_editor_absoluteY="105dp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edAddName" />
 
     <EditText
-        android:id="@+id/addURL"
-        android:layout_width="309dp"
-        android:layout_height="47dp"
+        android:id="@+id/edAddImgURL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:ems="10"
         android:hint="請輸入網址"
         android:inputType="text"
-        tools:layout_editor_absoluteX="53dp"
-        tools:layout_editor_absoluteY="187dp" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edAddHeight" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="60dp"
-        android:onClick="gobalck"
-        android:text="Button"
+        android:layout_marginTop="32dp"
+        android:onClick="goBack"
+        android:text="確定"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addURL" />
-
+        app:layout_constraintTop_toBottomOf="@+id/edAddImgURL" />
 </androidx.constraintlayout.widget.ConstraintLayout>

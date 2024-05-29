@@ -1,7 +1,5 @@
 package com.example.test0508;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
@@ -11,17 +9,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
-//https://github.com/cflin-cjcu/Test0508
+
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private List<stuData> stuDataList;
-    private stuDataact adapter;
+    private List<StuData> stuDataList;
+    private StuDataAdapter adapter;
 
     //建立一個 ActivityResultContract 可以接收 addDataActivity 的資料
     private ActivityResultLauncher<Intent> activityResultLauncher =
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                     String height = data.getStringExtra("height");
                     String url = data.getStringExtra("url");
                     Log.d("DDDDD", "name: " + name + " height: " + height + " url: " + url);
-                    stuDataList.add(new stuData(url, name, height));
+                    stuDataList.add(new StuData(url, name, height));
                     adapter.notifyDataSetChanged();
                 }
             });
@@ -48,24 +47,24 @@ public class MainActivity extends AppCompatActivity {
 
         stuDataList = new ArrayList<>();
 
-        stuDataList.add(new stuData("https://cdn-icons-png.flaticon.com/128/2769/2769833.png", "John", "180"));
-        stuDataList.add(new stuData("https://cdn-icons-png.flaticon.com/128/2769/2769833.png", "Tom", "175"));
-        stuDataList.add(new stuData("https://www.cjcu.edu.tw/images/logo_story/logo-xl.jpg", "Jerry", "170"));
-        stuDataList.add(new stuData("https://cdn-icons-png.flaticon.com/128/2769/2769833.png", "Mike", "165"));
-        stuDataList.add(new stuData("https://cdn-icons-png.flaticon.com/128/2769/2769833.png", "Jack", "160"));
-        stuDataList.add(new stuData("https://www.cjcu.edu.tw/images/logo_story/logo-s2.jpg", "Rose", "155"));
-        stuDataList.add(new stuData("https://cdn-icons-png.flaticon.com/128/2769/2769833.png", "Lily", "150"));
-        stuDataList.add(new stuData("https://cdn-icons-png.flaticon.com/128/2769/2769833.png", "Lucy", "145"));
-        stuDataList.add(new stuData("https://cdn-icons-png.flaticon.com/128/2769/2769833.png", "Linda", "140"));
-        stuDataList.add(new stuData("https://cdn-icons-png.flaticon.com/128/2769/2769833.png", "Marry", "135"));
-        adapter = new stuDataact(stuDataList);
+        stuDataList.add(new StuData("https://cdn-icons-png.flaticon.com/128/2769/2769833.png", "John", "180"));
+        stuDataList.add(new StuData("https://cdn-icons-png.flaticon.com/128/2769/2769833.png", "Tom", "175"));
+        stuDataList.add(new StuData("https://www.cjcu.edu.tw/images/logo_story/logo-xl.jpg", "Jerry", "170"));
+        stuDataList.add(new StuData("https://cdn-icons-png.flaticon.com/128/2769/2769833.png", "Mike", "165"));
+        stuDataList.add(new StuData("https://cdn-icons-png.flaticon.com/128/2769/2769833.png", "Jack", "160"));
+        stuDataList.add(new StuData("https://www.cjcu.edu.tw/images/logo_story/logo-s2.jpg", "Rose", "155"));
+        stuDataList.add(new StuData("https://cdn-icons-png.flaticon.com/128/2769/2769833.png", "Lily", "150"));
+        stuDataList.add(new StuData("https://cdn-icons-png.flaticon.com/128/2769/2769833.png", "Lucy", "145"));
+        stuDataList.add(new StuData("https://cdn-icons-png.flaticon.com/128/2769/2769833.png", "Linda", "140"));
+        stuDataList.add(new StuData("https://cdn-icons-png.flaticon.com/128/2769/2769833.png", "Marry", "135"));
+        adapter = new StuDataAdapter(stuDataList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
 
     public void addData(View view) {
-        Intent intent = new Intent(this, stuDataact.class);
+        Intent intent = new Intent(this, AddDataActivity.class);
 //        startActivityForResult(intent, 1);
         activityResultLauncher.launch(intent);
 

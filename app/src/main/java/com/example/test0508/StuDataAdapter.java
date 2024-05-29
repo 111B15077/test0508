@@ -1,4 +1,5 @@
 package com.example.test0508;
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
@@ -13,20 +14,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-
-public class stuDataact extends RecyclerView.Adapter<stuDataact.ViewHolder> {
+class StuDataAdapter extends RecyclerView.Adapter<StuDataAdapter.ViewHolder> {
 
     private ImageView img;
     private TextView tvName1;
     private TextView tvHeight1;
 
-    public List<stuData> getStuDataList() {
+    public List<StuData> getStuDataList() {
         return stuDataList;
     }
 
-    private List<stuData> stuDataList;
+    private List<StuData> stuDataList;
 
-    public stuDataact(List<stuData> stuDataList) {
+    public StuDataAdapter(List<StuData> stuDataList) {
         this.stuDataList = stuDataList;
     }
 
@@ -41,7 +41,7 @@ public class stuDataact extends RecyclerView.Adapter<stuDataact.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        stuData stuData = stuDataList.get(position);
+        StuData stuData = stuDataList.get(position);
 //        img.setImageResource(stuData.getId());
         Glide.with(holder.itemView).load(stuData.getImageUrl()).into(img);
         tvHeight1.setText(stuData.getHeight());
@@ -69,9 +69,9 @@ public class stuDataact extends RecyclerView.Adapter<stuDataact.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(View itemView) {
             super(itemView);
-            img = itemView.findViewById(R.id.tvpic);
+            img = itemView.findViewById(R.id.tvPic);
             tvName1 = itemView.findViewById(R.id.tvname);
-            tvHeight1 = itemView.findViewById(R.id.tvheight);
+            tvHeight1 = itemView.findViewById(R.id.tvHeight);
         }
     }
 }
