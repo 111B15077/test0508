@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -23,10 +24,11 @@ public class MainActivity extends AppCompatActivity {
     private StuDataAdapter adapter;
 
     //建立一個 ActivityResultContract 可以接收 addDataActivity 的資料
+    @SuppressLint("NotifyDataSetChanged")
     private ActivityResultLauncher<Intent> activityResultLauncher =
             registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
                 Log.d("DDDDD", "onActivityResult: " + result.getResultCode());
-                if (result != null) {
+                if (result.getResultCode() == 200) {     //addDataActivity
                     Intent data = result.getData();
                     String name = data.getStringExtra("name");
                     String height = data.getStringExtra("height");
@@ -35,6 +37,18 @@ public class MainActivity extends AppCompatActivity {
                     stuDataList.add(new StuData(url, name, height));
                     adapter.notifyDataSetChanged();
                 }
+                if (result.getResultCode() == 100) {    //UpdateActivity
+                    Intent data = result.getData();
+                    String name = data.getStringExtra("name");
+                    String height = data.getStringExtra("height");
+                    String url = data.getStringExtra("url");
+                    int position = data.getIntExtra("position", 0);
+                    Log.d("DDDDD", "name: " + name + " height: " + height + " url: " + url);
+                    stuDataList.set(position,new StuData(url, name, height));
+                    adapter.notifyDataSetChanged();
+                }
+                Log.d("DDDDD", "onActivityResult: " + stuDataList.size());
+
             });
 
 
@@ -61,6 +75,22 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        adapter.setOnItemClickListener(new StuDataAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent(MainActivity.this, UpdateActivity.class);
+                StuData stuData = stuDataList.get(position);
+                intent.putExtra("name", stuData.getName());
+                intent.putExtra("height", stuData.getHeight());
+                intent.putExtra("url", stuData.getImageUrl());
+                intent.putExtra("position", position);
+                Log.d("DDDDD", "onItemClick: " + position);
+                Log.d("DDDDD", "onItemClick: " + stuDataList.size());
+//                stuDataList.remove(position);
+                Log.d("DDDDD", "onItemClick: " + stuDataList.size());
+                activityResultLauncher.launch(intent);
+            }
+        });
     }
 
     public void addData(View view) {
