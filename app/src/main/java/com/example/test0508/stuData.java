@@ -1,29 +1,30 @@
 package com.example.test0508;
 
 public class stuData {
+
     private int id;
     private String name;
     private String height;
-    private String imageURL;
-
-    public stuData(String imageURL, String name, String height) {
-        this.name = name;
-        this.height = height;
-        this.imageURL = imageURL;
-    }
-
-    public String getImageURL() {
-        return imageURL;
-    }
-
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
-    }
+    private String imageUrl;
 
     public stuData(int id, String name, String height) {
         this.id = id;
         this.name = name;
         this.height = height;
+    }
+
+    public stuData(String imageUrl, String name, String height) {
+        this.name = name;
+        this.height = height;
+        this.imageUrl = imageUrl;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public int getId() {
@@ -49,5 +50,4 @@ public class stuData {
     public void setHeight(String height) {
         this.height = height;
     }
-
 }

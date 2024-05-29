@@ -1,32 +1,26 @@
 package com.example.test0508;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import java.util.List;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class Activity_add_data extends AppCompatActivity {
+public class UpdateActivity extends AppCompatActivity {
 
     private TextView addName;
     private TextView addHeight;
     private TextView addUrl;
-    private Intent intent;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_data);
+        setContentView(R.layout.activity_update);
+        addName = findViewById(R.id.edAddName);
+        addHeight = findViewById(R.id.edAddHeight);
+        addUrl = findViewById(R.id.edAddImgURL);
 
-        addName = findViewById(R.id.addName);
-        addHeight = findViewById(R.id.addhieght);
-        addUrl = findViewById(R.id.addURL);
-
-        intent = getIntent();
+        Intent intent = getIntent();
         String name = intent.getStringExtra("name");
         String height = intent.getStringExtra("height");
         String url = intent.getStringExtra("url");

@@ -1,5 +1,6 @@
 package com.example.test0508;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -15,48 +16,62 @@ import com.bumptech.glide.Glide;
 
 public class stuDataact extends RecyclerView.Adapter<stuDataact.ViewHolder> {
 
-    private static TextView tvname;
-    private static TextView tvheight;
-    private List<stuData> listData;
-    private static ImageView imageView;
+    private ImageView img;
+    private TextView tvName1;
+    private TextView tvHeight1;
 
-    public  stuDataact (List<stuData> listData){
-        this.listData = listData;
+    public List<stuData> getStuDataList() {
+        return stuDataList;
     }
 
-    public static void add(stuData stuData) {
+    private List<stuData> stuDataList;
 
+    public stuDataact(List<stuData> stuDataList) {
+        this.stuDataList = stuDataList;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            imageView = itemView.findViewById(R.id.tvpic);
-            tvname = itemView.findViewById(R.id.tvname);
-            tvheight = itemView.findViewById(R.id.tvheight);
-        }
-    }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
-        View  view = View.inflate(context, R.layout.activity_my_data_view, null);
+        View view = View.inflate(context, R.layout.activity_my_data_view, null);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        stuData stuData = listData.get(position);
-//        imageView.setImageResource(stuData.getId());
-        Glide.with(holder.itemView).load(stuData.getImageURL()).into(imageView);
-
-        tvname.setText(stuData.getName());
-        tvheight.setText(stuData.getHeight());
+        stuData stuData = stuDataList.get(position);
+//        img.setImageResource(stuData.getId());
+        Glide.with(holder.itemView).load(stuData.getImageUrl()).into(img);
+        tvHeight1.setText(stuData.getHeight());
+        tvName1.setText(stuData.getName());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), UpdateActivity.class);
+                intent.putExtra("name", stuData.getName());
+                intent.putExtra("height", stuData.getHeight());
+                intent.putExtra("url", stuData.getImageUrl());
+                //刪除點擊的 item
+                stuDataList.remove(position);
+                notifyItemRemoved(position);
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return listData.size();
+        return stuDataList.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        public ViewHolder(View itemView) {
+            super(itemView);
+            img = itemView.findViewById(R.id.tvpic);
+            tvName1 = itemView.findViewById(R.id.tvname);
+            tvHeight1 = itemView.findViewById(R.id.tvheight);
+        }
     }
 }
