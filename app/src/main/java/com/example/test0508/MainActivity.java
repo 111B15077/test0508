@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("DDDDD", "name: " + name + " height: " + height + " url: " + url);
                     stuDataList.add(new StuData(url, name, height));
                     adapter.notifyDataSetChanged();
+                    recyclerView.setAdapter(adapter);
                 }
                 if (result.getResultCode() == 100) {    //UpdateActivity
                     Intent data = result.getData();
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.d("DDDDD", "name: " + name + " height: " + height + " url: " + url);
                     stuDataList.set(position,new StuData(url, name, height));
                     adapter.notifyDataSetChanged();
+                    recyclerView.setAdapter(adapter);
                 }
                 Log.d("DDDDD", "onActivityResult: " + stuDataList.size());
 
